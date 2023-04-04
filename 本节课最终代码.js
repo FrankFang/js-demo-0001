@@ -1,4 +1,7 @@
 function jQuery(选择器) {
+  if(!(this instanceof jQuery)){
+    return new jQuery(选择器)
+  }
   const 标签伪数组 = document.querySelectorAll(选择器)
   this.标签数组 = Array.from(标签伪数组)
 }
@@ -18,5 +21,5 @@ jQuery.prototype = {
 }
 const $ = jQuery
 
-new $('.red').addClass('green') // api
-new $('.red').removeClass('red') // api
+$('.red').addClass('green') // api
+$('.red').removeClass('red') // api
